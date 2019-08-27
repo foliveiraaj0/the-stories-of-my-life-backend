@@ -7,16 +7,16 @@ var cors = require("cors");
 var corsOptions = {
   origin: function (origin, cb) {
  
+	    //console.log(origin);
+
             // setup a white list
             let wl = ['http://localhost:9001'];
  
-            if (wl.indexOf(origin) != -1) {
- 		console.log("cors - valid");
-                cb(null, true);
+            if (!origin || wl.indexOf(origin) != -1) {
+ 		cb(null, true);
  
             } else {
- 		console.log("cors - invalid");
-                cb(new Error('invalid origin: ' + origin), false);
+ 		cb(new Error('invalid origin: ' + origin), false);
  
             }
  
