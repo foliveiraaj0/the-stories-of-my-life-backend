@@ -1,0 +1,26 @@
+{
+  "name": "the-stories-of-my-life",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "stop:mongodb": "sudo service mongod stop",
+    "start:mongodb": "sudo service mongod start",
+    "start:server": "node server server.js ",
+    "find_instance": "sudo netstat -lpn | grep :9000",
+    "kill_instance": "kill -9 "
+  },
+  "author": "Fernando Oliveira",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.2.2",
+    "mongoose": "^5.4.21",
+    "validator": "^10.11.0"
+  }
+}
