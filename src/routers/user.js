@@ -5,7 +5,22 @@ const authRouter = require("../auth/auth_router");
 var cors = require("cors");
 
 var corsOptions = {
-  origin: 'http://localhost:9001',
+  origin: function (origin, cb) {
+ 
+            // setup a white list
+            let wl = ['http://localhost:9001'];
+ 
+            if (wl.indexOf(origin) != -1) {
+ 		console.log("cors - valid");
+                cb(null, true);
+ 
+            } else {
+ 		console.log("cors - invalid");
+                cb(new Error('invalid origin: ' + origin), false);
+ 
+            }
+ 
+        },
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
