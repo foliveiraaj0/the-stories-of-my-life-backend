@@ -57,15 +57,8 @@ router.post("/v1/login", cors(corsOptions), async (req, res) => {
   let { email, password } = req.body;
 
   try {
-    let user = await User.findWithCredentials(email, password);
-
-    user.setNewToken();
-
-    await user.save();
-
-    const userNoCredentials = user.getUserNoCredentials()
-    userNoCredentials.token = user.getLastToken()
-    res.status(200).send(userNoCredentials);
+    
+    res.status(200).send("ok");
   } catch (err) {
     console.log(err.message ? err.message : err);
     res.status(400).send();
