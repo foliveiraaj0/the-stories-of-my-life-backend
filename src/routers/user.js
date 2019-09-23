@@ -10,14 +10,17 @@ var corsOptions = {
 	    //console.log(origin);
 
             // setup a white list
-            let wl = ['https://the-stories-of-my-life-fe.herokuapp.com', 'http://localhost:9001'];
- 	    for(let i=0; i< wl.length; i++) {
+	    let isValid = false;
+	    let wl = ['https://the-stories-of-my-life-fe.herokuapp.com', 'http://localhost:9001'];
+ 	    for(let i=0; i < wl.length; i++) {
   	        if (!origin || wl[i].indexOf(origin) != -1) {
- 		    cb(null, true);
+		    isValid = true; 		    
+		    cb(null, true);
  	    	}
+	    }
+            if(!isValid) {
+		cb(new Error('invalid origin: ' + origin), false);
 	    } 
-            cb(new Error('invalid origin: ' + origin), false);
- 
         },
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
