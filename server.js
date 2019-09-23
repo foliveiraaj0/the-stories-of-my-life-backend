@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 
 app.use(
   cors({
-    origin: "http://localhost:9001",
+    origin: ["https://the-stories-of-my-life-fe.herokuapp.com", "http://localhost:9001"],
     allowedHeaders: ["Content-Type", "Authorization"]
     // ,credentials: true
   })
