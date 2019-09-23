@@ -12,7 +12,7 @@ var corsOptions = {
             // setup a white list
             let wl = ['https://the-stories-of-my-life-fe.herokuapp.com', 'http://localhost:9001'];
  	    for(let i=0; i< wl.length; i++) {
-  	        if (!origin || wl.indexOf(origin) != -1) {
+  	        if (!origin || wl[i].indexOf(origin) != -1) {
  		    cb(null, true);
  	    	}
 	    } 
